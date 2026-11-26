@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@import "@fontsource-variable/noto-sans/wght.css";
+@import "@fontsource-variable/noto-sans-telugu/wght.css";
+@import "@fontsource-variable/source-serif-4/wght.css";
+
+@theme {
+  /* surfaces */
+  --color-paper: #f3f5f2;
+  --color-card: #ffffff;
+  --color-line: #e1e6e2;
+  --color-line-strong: #c9d1cb;
+  /* text */
+  --color-ink: #12302a;
+  --color-ink-soft: #52635e;
+  /* brand: deep pine for chrome, brighter pine for actions, amber as the single accent */
+  --color-pine: #0f6b55;
+  --color-pine-deep: #0b2a25;
+  --color-pine-tint: #e3f1ec;
+  --color-mark: #e3a008;
+  /* status */
+  --color-ok: #1b7f4f;
+  --color-ok-soft: #e5f4ec;
+  --color-bad: #bf3329;
+  --color-bad-soft: #fdecea;
+  --color-warn: #a65a00;
+  --color-warn-soft: #fdf2dc;
+
+  --font-sans: "Noto Sans Variable", "Noto Sans Telugu Variable", "Nirmala UI", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-fig: "Source Serif 4 Variable", "Noto Sans Telugu Variable", Georgia, serif;
+
+  --shadow-card: 0 1px 2px rgb(18 48 42 / 0.05), 0 4px 14px -6px rgb(18 48 42 / 0.10);
+  --shadow-lift: 0 2px 4px rgb(18 48 42 / 0.06), 0 12px 28px -10px rgb(18 48 42 / 0.18);
+}
+
+html { background: var(--color-paper); color: var(--color-ink); -webkit-text-size-adjust: 100%; }
+body { font-family: var(--font-sans); line-height: 1.55; font-size: 16px; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { letter-spacing: -0.01em; }
+
+.num { font-variant-numeric: tabular-nums; }
+/* money and counts: set in a serif so figures read like a ledger and stay legible at a glance */
+.fig { font-family: var(--font-fig); font-variant-numeric: lining-nums tabular-nums; font-weight: 600; letter-spacing: -0.015em; }
+
+:focus-visible { outline: 3px solid var(--color-mark); outline-offset: 2px; }
+
+.card { background: var(--color-card); border: 1px solid var(--color-line); border-radius: 1rem; box-shadow: var(--shadow-card); }
+
+.field { width: 100%; border: 1.5px solid var(--color-line-strong); background: var(--color-card); border-radius: 0.625rem; padding: 0.7rem 0.85rem; min-height: 48px; transition: border-color .15s, box-shadow .15s; }
+.field:hover { border-color: #aab5ae; }
+.field:focus { outline: none; border-color: var(--color-pine); box-shadow: 0 0 0 3px rgb(15 107 85 / 0.18); }
+
+.btn { background: var(--color-pine); color: #fff; border-radius: 0.625rem; padding: 0.7rem 1.25rem; min-height: 48px; font-weight: 600; cursor: pointer; box-shadow: 0 1px 2px rgb(11 42 37 / 0.25); transition: background .15s, box-shadow .15s; }
+.btn:hover { background: #0b5645; box-shadow: 0 2px 6px rgb(11 42 37 / 0.3); }
+.btn:active { background: #094739; }
+
+.btn-quiet { border: 1.5px solid var(--color-line-strong); border-radius: 0.625rem; padding: 0.5rem 0.95rem; min-height: 44px; background: var(--color-card); font-weight: 500; cursor: pointer; transition: border-color .15s, background .15s; }
+.btn-quiet:hover { border-color: var(--color-pine); background: var(--color-pine-tint); }
+
+/* loading placeholders */
+.skel { background: linear-gradient(90deg, #e6ebe7 25%, #f1f4f1 50%, #e6ebe7 75%); background-size: 200% 100%; animation: skel 1.4s ease-in-out infinite; border-radius: 0.75rem; }
+@keyframes skel { to { background-position: -200% 0; } }
+
+@media print { .card { box-shadow: none; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
